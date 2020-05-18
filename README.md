@@ -1,24 +1,40 @@
-# README
+AB Messenger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Run project:
+1. add DB credentials to environment
+2. add credentials for third services (SendGrid, Nexmo). It uses .env file in development environment
 
-Things you may want to cover:
+Add users from rails console:
+```ruby
+CreateUserService.new(
+  email: "text@exmple.com",
+  phone: "380501234567",
+  first_name: "Vasya",
+  last_name: "Pupkin"
+)
+```
 
-* Ruby version
+Add message templates from rails console:
+```ruby
+CreateMessageTemplateService.new(
+  name: "confirmation",
+  text: "Hello, %first_name%!\nYour phone number is %phone%"
+)
+```
 
-* System dependencies
+Send *email* from rails console:
+```ruby
+SendMessageService.new(
+  User.first,
+  MessageTemplate.first
+)
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Send *SMS* from rails console:
+```ruby
+SendMessageService.new(
+  User.first,
+  MessageTemplate.first,
+  :sms
+)
+```
