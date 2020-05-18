@@ -1,0 +1,18 @@
+default: &default
+  default_from:
+    email: no-reply@example.com
+    name: example.com
+  template_ids:
+    send: d-feed813b720c459785fd3af31abcd3e0
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
