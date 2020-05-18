@@ -1,6 +1,5 @@
 class SmsService
   LIMIT_LENGTH = true
-  PROVIDER = "Nexmo" # or "TurboSMS"
 
   attr_reader :phone, :text
 
@@ -10,7 +9,7 @@ class SmsService
   end
 
   def send
-    service_name = "#{PROVIDER.downcase.capitalize}Service".constantize
+    service_name = "#{provider.downcase.capitalize}Service".constantize
     service_name.new.send_sms(phone, prepare_text)
   end
 
@@ -22,5 +21,9 @@ class SmsService
     # TODO: implement check for cyrillic symbols
 
     text.truncate(160)
+  end
+
+  def provider
+    "Nexmo" # or "TurboSMS"
   end
 end

@@ -11,8 +11,6 @@ class ApplicationMailer < ActionMailer::Base
     super
   end
 
-  protected
-
   def template_id
     template_ids.dig(action_name)
   end
