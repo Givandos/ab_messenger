@@ -15,6 +15,14 @@ class SendMessageService
     send("send_message_#{message.type}")
     save_send_result
 
+    puts JSON.pretty_generate(
+      {
+        "user number": user.phone,
+        "user email": user.email,
+        "text": text
+      }
+    )
+
     message
   end
 
