@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class Message < ApplicationRecord
   self.inheritance_column = :_type_disabled
 
@@ -19,7 +18,7 @@ class Message < ApplicationRecord
                          message: "%{value} is not a valid message status" }
 
   validates :user,
-            uniqueness: true,
+            uniqueness: { scope: :type },
             if: lambda {
               Message.exists?(
                 "created_at >= #{Time.current - REPEAT_FREQUENCY_MINUTES.minutes}"

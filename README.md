@@ -11,7 +11,7 @@ CreateUserService.new(
   phone: "380501234567",
   first_name: "Vasya",
   last_name: "Pupkin"
-)
+).perform
 ```
 
 Add message templates from rails console:
@@ -19,7 +19,7 @@ Add message templates from rails console:
 CreateMessageTemplateService.new(
   name: "confirmation",
   text: "Hello, %first_name%!\nYour phone number is %phone%"
-)
+).perform
 ```
 
 Send *email* from rails console:
@@ -27,7 +27,7 @@ Send *email* from rails console:
 SendMessageService.new(
   User.first,
   MessageTemplate.first
-)
+).perform
 ```
 
 Send *SMS* from rails console:
@@ -36,5 +36,5 @@ SendMessageService.new(
   User.first,
   MessageTemplate.first,
   :sms
-)
+).perform
 ```
