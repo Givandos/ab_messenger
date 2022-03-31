@@ -93,11 +93,11 @@ GEM
       jwt (~> 2)
       sorbet-runtime (~> 0.5)
       zeitwerk (~> 2, >= 2.2)
-    nio4r (2.5.2)
+    nio4r (2.5.8)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     pg (1.2.3)
-    puma (4.3.3)
+    puma (4.3.12)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
@@ -169,7 +169,7 @@ DEPENDENCIES
   listen (~> 3.2)
   nexmo
   pg (>= 0.18, < 2.0)
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.3)
   sendgrid-actionmailer
   spring
